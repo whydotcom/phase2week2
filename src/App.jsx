@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import TaskList from './TaskList.jsx'
-import UnfinishedTasks from './UnfinishedTasks.jsx'
 
 function App() {
 

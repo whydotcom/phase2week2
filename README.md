@@ -1,16 +1,16 @@
-# React + Vite
+##Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Description
+An application that helps managed tasks both unfinished and complete.
 
-Currently, two official plugins are available:
+#Technologies Used
+React + Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+#Features
+Allows addition and removal of tasks, as well as setting tasks as complete, and undoing the completion of a task to make it unfinished again. Checks for blank entries as well as single space entries. Also has a counter for incomplete tasks that updates everytime a task is completed, uncompleted, or removed.
 
-## React Compiler
+#Installation and Setup
+Open in code viewer of choice, ideally vs code, and open terminal. Enter npm install to install the project's dependencies, and then enter npm run dev. Put the generated local http address into a browser to see the model.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#Known Limitations
+Although this application does have contingencies for blank entries, if one enters anymore than 1 space, it will submit the task. 
