@@ -5,24 +5,27 @@ function TaskItem(props){
             <>
 
                 <li>
-                    {props.name}
+                   <p>{props.name}</p>
+
+                    <button onClick={() => {props.remove(props.id)}}>Remove</button>
+
+                    <button onClick={() => {props.completing(props.id)}}>Completed</button>
                 </li>
 
-                <button onClick={() => {props.remove(props.id)}}>Remove</button>
-
-                <button onClick={() => {props.completing(props.id)}}>Completed</button>
             </>
         )
     }else if(props.completed===true){
         return (
             <>
-                <p style={{textDecoration: "line-through"}}>
-                    {props.name}
-                </p>
+                <li style={{listStyleType: "none"}}>
+                    <p style={{textDecoration: "line-through"}}>
+                        {props.name}
+                    </p>
 
-                <button onClick={() => {props.remove(props.id)}}>Remove</button>
-                
-                <button onClick={() => {props.uncompleting(props.id)}}>Uncompleted</button>
+                    <button onClick={() => {props.remove(props.id)}}>Remove</button>
+
+                    <button onClick={() => {props.uncompleting(props.id)}}>Uncompleted</button>
+                </li>
             </>
         )
     }}
