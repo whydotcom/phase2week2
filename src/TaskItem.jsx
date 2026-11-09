@@ -20,6 +20,8 @@ function TaskItem(props){
                     {props.name}
                 </p>
 
+                <button onClick={() => {props.remove(props.id)}}>Remove</button>
+                
                 <button onClick={() => {props.uncompleting(props.id)}}>Uncompleted</button>
             </>
         )

@@ -5,7 +5,7 @@ function App() {
 
   const [tasks, setTasks] = useState([]);
 
-  const [incomplete, setIncomplete] = useState(0)
+  const [idCounter, setIdCounter] = useState(1);
 
   function addTask(e){
 
@@ -18,18 +18,18 @@ function App() {
     //make it into an object to work with
     const formJson = Object.fromEntries(formData.entries());
 
-    const taskName = formJson["task-name"]
+    const taskName = formJson["task-name"].trim()
 
-    if(taskName !== " "){
+    if(taskName !== ""){
       const taskObject = {
-        id:(tasks.length+1),
+        id: idCounter,
         name:taskName,
         completed:false
       };
   
       const newTasks = [...tasks, taskObject];
 
-      setIncomplete(prev => prev +1);
+      setIdCounter(prev => prev + 1);
       setTasks(newTasks);
 
       e.target.reset();
@@ -42,13 +42,6 @@ function App() {
 
   function removeTask(id){
     const lessTasks = tasks.filter(item => item.id !== id);
-    const leftOut = tasks.filter(item => item.id === id);
-
-    if(leftOut[0].completed===false){
-      if(incomplete>0){
-        setIncomplete(prev => prev -1);
-      };
-    }
 
     setTasks(lessTasks);
 
@@ -72,11 +65,6 @@ function App() {
 
     const newestArray = [...bArray,...cArray];
 
-    if(incomplete>0){
-      setIncomplete(prev => prev -1);
-    };
-
-    
     setTasks(newestArray);
   }
 
@@ -96,8 +84,6 @@ function App() {
     const cArray= aArray.filter(item => item.completed == true);
 
     const newestArray = [...bArray,...cArray];
-
-    setIncomplete(prev => prev +1);
     
     setTasks(newestArray);
   }
@@ -108,7 +94,7 @@ function App() {
     <div>
       {tasks.length>0 ? <TaskList array={tasks} remove={removeTask} completing={completeTask} uncompleting={uncompleteTask} /> : "No tasks yet"}
 
-      <p> Incomplete Tasks: {incomplete}</p>
+      <p> Incomplete Tasks: {tasks.filter(item => item.completed === false).length}</p>
 
       <hr />
 
